@@ -13,7 +13,6 @@
   - `.adc`: Upload/Download code directly to Pastebin.
   - `.install`: Install npm packages via bot commands.
 - 🎮 **Automation**: Hourly group messages and auto-detection features.
-- 🛡️ **Security**: Multi-layer obfuscated core for protection.
 - 📊 **Control Panel**: Built-in web dashboard for easy configuration.
 
 ---
@@ -53,6 +52,33 @@ To enable advanced AI features in `goibot.js`, you need to set your API key:
 
 ## 🛠️ GitHub Workflow (CI/CD)
 The bot is pre-configured with a `.github/workflows/main.yml` to ensure it stays active and tests properly on GitHub.
+Work Flow.
+```bash
+#
+name: Bot CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-js-version: '20'
+    - run: npm install
+    - name: Check Build
+      run: node -e "console.log('Build successful')
+
+,
+
+
 
 ```bash
 # To run locally
