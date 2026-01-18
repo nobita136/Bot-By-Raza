@@ -179,7 +179,7 @@ module.exports = function (defaultFuncs, api, ctx) {
       sendContent(form, threadID, false, messageAndOTID, callback);
     } else {
       if (utils.getType(isGroup) != "Boolean")
-        sendContent(form, threadID, threadID.length < 15, messageAndOTID, callback);
+        sendContent(form, threadID, threadID.toString().length < 14, messageAndOTID, callback);
       else
         sendContent(form, threadID, !isGroup, messageAndOTID, callback);
     }
