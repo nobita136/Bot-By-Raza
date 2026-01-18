@@ -7,7 +7,7 @@ module.exports.config = {
     name: "adc",
     version: "1.0.0",
     permission: 2,
-    credits: "Thjhn",
+    credits: "Kashif Raza",
     description: "Update code from Pastebin or upload local file to Pastebin",
     category: "admin",
     usages: "[filename] or [reply to a pastebin link]",
