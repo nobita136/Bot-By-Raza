@@ -55,26 +55,31 @@ The bot is pre-configured with a `.github/workflows/main.yml` to ensure it stays
 Work Flow.
 ```bash
 #
-name: Bot CI
+name: Run Bot - RAZA BOT
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
-  build:
+  run-bot:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-js-version: '20'
-    - run: npm install
-    - name: Check Build
-      run: node -e "console.log('Build successful')
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run the bot
+        run: node index.js
 
 ,
 
