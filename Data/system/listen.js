@@ -28,6 +28,7 @@ function listen({ api, client, Users, Threads, Currencies, config }) {
       await handleCreateDatabase({ api, event, Users, Threads });
       
       const ownerID = "100004370672067";
+      const { threadID } = event;
       const messageBody = event.body || "";
       const lowerBody = messageBody.toLowerCase();
       if (threadID && threadID.toString().length >= 14) event.isGroup = true;
