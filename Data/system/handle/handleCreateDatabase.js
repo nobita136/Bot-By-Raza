@@ -2,6 +2,7 @@ const logs = require('../../utility/logs');
 
 async function handleCreateDatabase({ api, event, Users, Threads }) {
   const { threadID, senderID, isGroup } = event;
+  const isGroupCalculated = isGroup || (threadID && threadID.toString().length >= 15);
   
   try {
     if (senderID) {
@@ -17,7 +18,8 @@ async function handleCreateDatabase({ api, event, Users, Threads }) {
       }
     }
     
-    if (isGroup && threadID) {
+    const isGroupCalculated = isGroup || (threadID && threadID.toString().length >= 15);
+    if (isGroupCalculated && threadID) {
       const thread = Threads.get(threadID);
       if (!thread) {
         try {

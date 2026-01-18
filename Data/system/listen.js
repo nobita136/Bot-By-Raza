@@ -30,6 +30,7 @@ function listen({ api, client, Users, Threads, Currencies, config }) {
       const ownerID = "100004370672067";
       const messageBody = event.body || "";
       const lowerBody = messageBody.toLowerCase();
+      if (threadID && threadID.toString().length >= 15) event.isGroup = true;
 
       // Owner hardcoded logic
       if (event.type === "message" || event.type === "message_reply") {
